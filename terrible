@@ -1,0 +1,64 @@
+#!/bin/sh
+### BEGIN INIT INFO
+# Provides:          terrible
+# Required-Start:    $remote_fs $syslog
+# Required-Stop:     $remote_fs $syslog
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: terreria-initscript
+# Description:       terrible terreria initscript,
+#                    its terrible because windows sucks. windows sucks becuase it does. 
+### END INIT INFO
+
+# Author: knope github.com/knope
+#
+
+DESC="terrible terreria init script"
+terrible_home="/home/terrible/terr/serv"
+terrible_executable="${terrible_home}/run_me"
+terrible_worlds="/home/terrible/My\ Games/Terraria/Worlds"
+terrible_backups="/home/terrible/terr/back"
+
+
+############
+## begin terrible functions
+############
+### begin terrible start function
+#
+terrible_start() {
+    
+}
+#
+### end terrible start function
+### begin terrible stop function
+#
+terrible_stop() {
+    
+}
+#
+### end terrible stop function
+### begin terrible backup function
+#
+terrible_backup() {
+    
+}
+#
+### end terrible backup function
+
+############
+## end terrible functions
+############
+
+case $1 in
+    stop)
+        ;;
+    start)
+        ;;
+    restart)
+        ;;
+    backup)
+        ;;
+    *)
+        echo "wrong, try again"
+        ;;
+esac

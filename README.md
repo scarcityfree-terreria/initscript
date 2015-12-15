@@ -1,1 +1,4 @@
-# initscript
+# scarcityfree
+### initscript
+
+- obvious purpose, whyUnoKNO?
