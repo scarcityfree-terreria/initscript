@@ -37,6 +37,19 @@ terrible_user() {
 }
 #
 ### end terrible user function
+### begin terrible message
+#
+terrible_message() {
+    say="$1"
+    if pgrep -u terrible -f run_me > /dev/null
+    then
+        terrible_user ". ~/.profile ; screen -p 0 -s terriblescreenisnot -X eval 'stuff \"${say}\"\015'"
+    else
+        echo 'bad, go try when the server is actually running you twit, :P'
+    fi
+}
+#
+### end terrible message
 ### begin terrible start function
 #
 terrible_start() {
@@ -64,7 +77,27 @@ terrible_start() {
 ### begin terrible stop function
 #
 terrible_stop() {
-    
+    if pgrep -u terrible -f run_me > /dev/null
+    then
+        echo '            terrible server is running, stopping in 15 seconds'
+        terrible_message "say stopping in 15 seconds"
+        sleep 5
+        terrible_message "say stopping in 10 seconds"
+        sleep 5
+        terrible_message "say this terrible server is stopping in 5"
+        sleep 1
+        terrible_message "say 4 seconds"
+        sleep 2
+        terrible_message "say 2 ... "
+        sleep 1
+        terrible_message "say  ... 1... ttyl  :)"
+        sleep 1
+        terrible_message "off"
+        echo '            server is now closing'
+    else
+        echo "            the damn server isn't even running..."
+        echo "            how the hell do you expect it to stop running?.. o.O"
+    fi
 }
 #
 ### end terrible stop function
@@ -96,11 +129,15 @@ case $1 in
         terrible_start
         ;;
     restart)
+        terrible_message "say the server is restarting... go have some coffee, or run a lap around your neighborhood"
+        terrible_message "say be back online in about 5 mins, tops"
         terrible_stop
         sleep 60
         terrible_start
         ;;
     backup)
+        terrible_message "shutting down to take a nice clean backup..."
+        terrible_message "say be back online in about 5 mins, tops"
         terrible_stop
         sleep 60
         terrible_backup
