@@ -60,6 +60,13 @@ terrible_start() {
         echo '        o look at you trying to start the server and stuff   [-.-]'
         echo "            i suppose we'll start now..."
         terrible_user ". ~/.profile ; cd ~terrible/terr/serv ; screen -dms terriblescreenisnot ./run_me"
+        sleep 2
+        terrible_message "1"
+        sleep 1
+        terrible_message "42"
+        sleep 1
+        terrible_message "7777"
+        sleep 1
         if pgrep -u terrible -f run_me > /dev/null
         then
             echo '        wooo server started... give it time to set liquids and crap'
