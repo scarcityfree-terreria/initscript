@@ -110,9 +110,7 @@ terrible_stop() {
 ### end terrible stop function
 ### begin terrible backup function
 #
-terrible_backup() {
-    
-}
+terrible_backup() {}
 #
 ### end terrible backup function
 
