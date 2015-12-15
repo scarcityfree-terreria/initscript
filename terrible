@@ -81,13 +81,30 @@ terrible_backup() {
 ############
 
 case $1 in
+    status)
+        if pgrep -u terrible -f run_me > /dev/null
+        then
+            echo 'terrible server is running'
+        else
+            echo 'terrible server is not running'
+        fi
+        ;;
     stop)
+        terrible_stop
         ;;
     start)
+        terrible_start
         ;;
     restart)
+        terrible_stop
+        sleep 60
+        terrible_start
         ;;
     backup)
+        terrible_stop
+        sleep 60
+        terrible_backup
+        terrible_start
         ;;
     *)
         echo "wrong, try again"
