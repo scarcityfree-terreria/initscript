@@ -23,10 +23,41 @@ terrible_backups="/home/terrible/terr/back"
 ############
 ## begin terrible functions
 ############
+### begin terrible user function
+#
+terrible_user() {
+    who_i_be=`(whoami)`
+    if [ $who_i_be = terrible ]
+    then
+        /bin/bash -c "$1"
+    else
+        echo '        ... '
+        echo '        wrong user! do it again!!!!         [-.-]'
+    fi
+}
+#
+### end terrible user function
 ### begin terrible start function
 #
 terrible_start() {
-    
+    if pgrep -u terrible -f run_me > /dev/null
+    then
+        echo '        the terrible server is running already!  [-.-]'
+    else
+        echo '        o look at you trying to start the server and stuff   [-.-]'
+        echo "            i suppose we'll start now..."
+        terrible_user ". ~/.profile ; cd ~terrible/terr/serv ; screen -dms terriblescreenisnot ./run_me"
+        if pgrep -u terrible -f run_me > /dev/null
+        then
+            echo '        wooo server started... give it time to set liquids and crap'
+            echo '                 maybe like... 2 mins'
+        else
+            echo ' holy un-error-cal errors BatMan, something went shitty'
+            echo '      read logs peon...  v  '
+            tail -n 12 ${terrible_home}/ServerLog.txt
+            echo '      read logs peon...  ^  '
+        fi
+    fi
 }
 #
 ### end terrible start function
