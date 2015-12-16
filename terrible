@@ -110,7 +110,20 @@ terrible_stop() {
 ### end terrible stop function
 ### begin terrible backup function
 #
-terrible_backup() {}
+terrible_backup() {
+    back_up_file="/home/terrible/terr/back/wads/scarcityfree-terraria.`(date +"%y%m%d_%T")`"
+    if pgrep -u terrible -f run_me > /dev/null
+    then
+        echo "not safe, server still running"
+    else
+        rsync -a /home/terrible/terr/serv /home/terrible/terr/back/stage/
+        rsync -a /home/terrible/My\ Games/Terraria /home/terrible/terr/back/stage/
+        echo "stage for:" |tee /home/terrible/terr/back/stage/backup_info
+        echo "${back_up_file}" |tee -a /home/terrible/terr/back/stage/backup_info
+        cp /home/terrible/terr/back/stage/backup_info /home/terrible/terr/back/backup_last_info
+        tar -czvf "${back_up_file}" /home/terrible/terr/back/stage/*
+    fi
+}
 #
 ### end terrible backup function
 
@@ -144,8 +157,9 @@ case $1 in
         terrible_message "shutting down to take a nice clean backup..."
         terrible_message "say be back online in about 5 mins, tops"
         terrible_stop
-        sleep 60
+        sleep 45
         terrible_backup
+        sleep 15
         terrible_start
         ;;
     *)
