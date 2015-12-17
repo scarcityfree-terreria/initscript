@@ -150,7 +150,7 @@ case $1 in
         terrible_message "say the server is restarting... go have some coffee, or run a lap around your neighborhood"
         terrible_message "say be back online in about 5 mins, tops"
         terrible_stop
-        sleep 60
+        sleep 45
         terrible_start
         ;;
     backup)
@@ -159,7 +159,6 @@ case $1 in
         terrible_stop
         sleep 45
         terrible_backup
-        sleep 15
         terrible_start
         ;;
     *)
