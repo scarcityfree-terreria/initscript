@@ -15,6 +15,7 @@
 
 DESC="terrible terreria init script"
 terrible_home="/home/terrible/terr/serv"
+terrible_log="${terrible_home}/ServerLog.txt"
 terrible_executable="${terrible_home}/run_me"
 terrible_worlds="/home/terrible/My\ Games/Terraria/Worlds"
 terrible_backups="/home/terrible/terr/back"
@@ -37,6 +38,33 @@ terrible_user() {
 }
 #
 ### end terrible user function
+### begin terrible output from terrible server
+#
+terrible_output_pre() {
+    if pgrep -u terrible -f run_me > /dev/null
+    then
+        output_pre=0
+        pre_log_length=`(wc -l "${terrible_log}" | awk '{print $1}')`
+    else
+        output_pre=1
+        echo '  always trying to do things to a non running server... tisk tisk'
+    fi
+}
+terrible_output_post() {
+    if [ $output_pre = '0' ]
+    then
+        if pgrep -u terrible -f run_me > /dev/null
+         then
+             tail -n $[`(wc -l ${terrible_log} | awk '{print $1}')`-$pre_log_length] "${terrible_log}"
+        else
+             echo '    well that was wierd'
+         fi
+     else
+         echo ':('
+     fi
+}
+#
+### end terrible output from terrible server
 ### begin terrible message
 #
 terrible_message() {
@@ -162,7 +190,9 @@ case $1 in
         terrible_start
         ;;
     msg | message | say)
+        terrible_output_pre
         terrible_message "say $1"
+        terrible_output_post
         ;;
     *)
         echo "wrong, try again"
