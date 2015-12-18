@@ -55,7 +55,7 @@ terrible_output_post() {
     then
         if pgrep -u terrible -f run_me > /dev/null
          then
-             tail -n $[`(wc -l ${terrible_log} | awk '{print $1}')`-$pre_log_length] "${terrible_log}"
+             tail -n `(expr `(wc -l ${terrible_log} | awk '{print $1}')` - ${pre_log_length})` "${terrible_log}"
         else
              echo '    well that was wierd'
          fi
