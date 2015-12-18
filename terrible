@@ -161,6 +161,9 @@ case $1 in
         terrible_backup
         terrible_start
         ;;
+    msg | message | say)
+        terrible_message "say $1"
+        ;;
     *)
         echo "wrong, try again"
         ;;
