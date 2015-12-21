@@ -10,7 +10,8 @@
 - add your game-server user, and set-up it's home
 - download the latest version of tshock executable
 - install the latest mono-complete package set
-###### all of the above can be done by running the included (as a user with sudo permissions) 'install_terrible_server.sh'
+###### all of the above can be done by running the included (as a user with sudo permissions) 'bash ./install_terrible_server.sh'
+###### be sure to follow instructions carefully, and you should be good to go.
 
 ### how to use
 
@@ -27,3 +28,4 @@
     */15 * * * * terrible start
 
     - the script is built such that if the server is already running this will simply notice that and do nothing.
+    - for now this script expects that you only intend to run 1 terreria world on the server, and it automatically will manipulate the world created in slot 1.
