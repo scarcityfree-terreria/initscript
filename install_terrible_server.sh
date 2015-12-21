@@ -36,9 +36,9 @@ echo '#####################################'
 echo link terrible init script to a dir in terrible default path
 
 echo '#####################################'
-sudo ln -s  ~terrible/terr/serv/run_me /usr/sbin/
-sudo chmod a+x ~terrible/terr/serv/run_me
-sudo chmod a+x /usr/sbin/run_me
+sudo ln -s  "`(pwd)`/terrible" /usr/sbin/terrible
+sudo chmod +x ~terrible/terr/serv/run_me
+sudo chmod a+x /usr/sbin/terrible
 echo '#####################################'
 
 echo screenrc placement, because screen is better this way
