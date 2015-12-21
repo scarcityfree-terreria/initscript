@@ -17,7 +17,14 @@
 
 ### how to use
 
-- clone the script to your terreria server somewhere, make `terrible` executable and place a link to it in your terreria users path.
+- start with the installer, 
+    `bash ./install_terrible_server.sh`
+    - this will set the:
+        - terreria (terrible) user
+        - tshock release zip download/extract
+        - init script linked to runable PATH
+        - post config steps (manual)
+
 - run the terrible script with one of the following uptions:
     - start
     - stop
