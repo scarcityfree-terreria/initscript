@@ -7,13 +7,6 @@
 ### Pre-requisites
 - debian rules, redhat drools
     - noting this, it is understood that you will be performing these steps for prep on a debian(or)ubuntu system
-- add your game-server user, and set-up it's home
-- download the latest version of tshock executable
-- install the latest mono-complete package set
-
-###### all of the above can be done by running the included (as a user with sudo permissions) 'bash ./install_terrible_server.sh'
-
-###### be sure to follow instructions carefully, and you should be good to go.
 
 ### how to use
 
