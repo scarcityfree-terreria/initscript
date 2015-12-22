@@ -2,13 +2,13 @@
 ##
 #
 #fancy color prompts
-WHITE='[37m[40m'
-SKYBLUE='[36m[40m'
-BLUE='[34m[39m'
-PURPLE='[35m[39m'
-RED='[31m[40m'
-ORANGE='[31m[43m'
-YELLOW='[33m[40m'
+WHITE='\[37m\[40m'
+SKYBLUE='\[36m\[40m'
+BLUE='\[34m\[39m'
+PURPLE='\[35m\[39m'
+RED='\[31m\[40m'
+ORANGE='\[31m\[43m'
+YELLOW='\[33m\[40m'
 #
 #
 ##
